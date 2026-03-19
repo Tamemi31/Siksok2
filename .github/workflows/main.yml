@@ -12,13 +12,13 @@ jobs:
 
     - name: Unzip Project
       run: |
-        unzip SiksokAI-AndroidProject.zip
+        ls -la
+        unzip *.zip
         ls -la SiksokAI/
 
     - name: Fix build.gradle
       run: |
         sed -i '/compileSdkVersion 33/a\    namespace "com.siksok.ai"' SiksokAI/app/build.gradle
-        cat SiksokAI/app/build.gradle
 
     - uses: actions/setup-java@v4
       with:
@@ -41,4 +41,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: SiksokAI-APK
-        path: SiksokAI/app/build/outputs/apk/debug/app-debug.apk
+        path: SiksokAI/app/build/outputs/apk/debug/app-debug.apk 
